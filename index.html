@@ -4,9 +4,19 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Ahmed Nabih</title>
-  <meta name="description" content="">
-  <meta name="keywords" content="">
+  <title>Ahmed Nabih — Backend Engineer & Systems Architect</title>
+  <meta name="description" content="Ahmed Nabih is a backend engineer with 5+ years building secure, scalable systems, SaaS platforms, and APIs with Django. Explore the projects, services, and experience.">
+  <meta name="keywords" content="Ahmed Nabih, Backend Engineer, Django Developer, Python, REST API, SaaS, Microservices, PostgreSQL, Docker, Cairo Egypt">
+  <meta name="author" content="Ahmed Nabih">
+  <meta name="theme-color" content="#5b3da8">
+
+  <!-- Open Graph / social sharing -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Ahmed Nabih — Backend Engineer & Systems Architect">
+  <meta property="og:description" content="Backend engineer building secure, scalable systems, SaaS platforms, and APIs with Django.">
+  <meta property="og:image" content="assets/img/profile_image.webp">
+  <meta property="og:url" content="https://a-nabih.github.io/portfolio/">
+  <meta name="twitter:card" content="summary_large_image">
 
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
@@ -15,7 +25,7 @@
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -27,73 +37,207 @@
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
 
+  <style>
+    :root {
+      --brand: #5b3da8;
+      --brand-2: #7c5cd6;
+      --accent: #b8a07e;
+    }
+
+    /* ---------- Hero refinements ---------- */
+    .hero .hero-cta {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 26px;
+    }
+    .hero .btn-primary-cta,
+    .hero .btn-ghost-cta {
+      padding: 12px 30px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 15px;
+      letter-spacing: .3px;
+      transition: all .3s ease;
+      border: 2px solid var(--brand-2);
+    }
+    .hero .btn-primary-cta {
+      background: var(--brand-2);
+      color: #fff;
+    }
+    .hero .btn-primary-cta:hover {
+      background: transparent;
+      color: #fff;
+    }
+    .hero .btn-ghost-cta {
+      background: transparent;
+      color: #fff;
+      border-color: rgba(255, 255, 255, .35);
+    }
+    .hero .btn-ghost-cta:hover {
+      border-color: var(--brand-2);
+      background: var(--brand-2);
+    }
+    .hero .hero-tagline {
+      max-width: 620px;
+      margin: 14px auto 0;
+      opacity: .85;
+      font-size: 17px;
+    }
+
+    /* ---------- Portfolio cards ---------- */
+    .portfolio .portfolio-content {
+      position: relative;
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(0, 0, 0, .06);
+      box-shadow: 0 6px 22px rgba(20, 20, 43, .06);
+      transition: transform .35s ease, box-shadow .35s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .portfolio .portfolio-content:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 40px rgba(20, 20, 43, .14);
+    }
+    .portfolio .img-wrap {
+      position: relative;
+      overflow: hidden;
+    }
+    .portfolio .portfolio-content img {
+      width: 100%;
+      height: 232px;
+      object-fit: cover;
+      object-position: top center;
+      transition: transform .5s ease;
+    }
+    .portfolio .portfolio-content:hover img {
+      transform: scale(1.06);
+    }
+    .portfolio .portfolio-actions {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      display: flex;
+      gap: 8px;
+      opacity: 0;
+      transform: translateY(-6px);
+      transition: opacity .3s ease, transform .3s ease;
+    }
+    .portfolio .portfolio-content:hover .portfolio-actions {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .portfolio .portfolio-actions a {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .95);
+      backdrop-filter: blur(4px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--brand);
+      font-size: 18px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, .15);
+      transition: background .25s ease, color .25s ease;
+    }
+    .portfolio .portfolio-actions a:hover {
+      background: var(--brand);
+      color: #fff;
+    }
+    /* Override template's hover-overlay info box -> static card body */
+    .portfolio .portfolio-content .portfolio-info {
+      opacity: 1 !important;
+      position: static !important;
+      inset: auto !important;
+      background: #fff !important;
+      z-index: auto;
+      padding: 22px 22px 24px;
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+    .portfolio .portfolio-content .portfolio-info .cat {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--brand-2);
+      margin-bottom: 8px;
+    }
+    .portfolio .portfolio-content .portfolio-info h4 {
+      font-size: 20px;
+      font-weight: 700;
+      color: #1f2235;
+      background: none;
+      padding: 0;
+      display: block;
+      margin-bottom: 8px;
+    }
+    .portfolio .portfolio-content .portfolio-info p {
+      position: static;
+      text-align: left;
+      font-size: 14.5px;
+      font-weight: 400;
+      line-height: 1.6;
+      color: #61697a;
+      margin-bottom: 14px;
+    }
+    .portfolio .portfolio-content .portfolio-info .portfolio-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: auto;
+    }
+    .portfolio .portfolio-content .portfolio-info .portfolio-tags span {
+      font-size: 11.5px;
+      font-weight: 500;
+      color: #5b3da8;
+      background: rgba(124, 92, 214, .1);
+      padding: 4px 11px;
+      border-radius: 50px;
+    }
+
+    /* ---------- Portfolio filters ---------- */
+    .portfolio .portfolio-filters li {
+      transition: color .3s ease;
+    }
+    .portfolio .portfolio-filters li.filter-active {
+      color: var(--brand-2);
+    }
+
+    /* ---------- Contact send button ---------- */
+    #send-button {
+      background-color: var(--brand-2);
+      color: #fff;
+      padding: 12px 40px;
+      border-radius: 50px;
+      font-weight: 600;
+      border: 2px solid var(--brand-2);
+      transition: all .3s ease;
+    }
+    #send-button:hover {
+      background-color: transparent;
+      color: var(--brand-2);
+    }
+
+    @media (max-width: 768px) {
+      .portfolio .portfolio-content img { height: 200px; }
+      .portfolio .portfolio-actions { opacity: 1; transform: none; }
+    }
+  </style>
 </head>
-<style>
-.portfolio .portfolio-content {
-  position: relative;
-  overflow: hidden;
-  border-radius: 12px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
 
-.portfolio .portfolio-content:hover {
-  transform: scale(1.02);
-  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.15);
-}
-
-.portfolio .portfolio-content img {
-  width: 100%;
-  height: 250px; /* Ensures uniform height for all images */
-  object-fit: cover; /* Ensures images cover the area without stretching */
-  border-top-left-radius: 12px;
-  border-top-right-radius: 12px;
-}
-
-/* Special Handling for Tall Images (Mobile App) */
-.portfolio .portfolio-item.filter-app img {
-  height: 280px; /* Slightly taller for app images */
-}
-
-/* Portfolio Info Styling */
-.portfolio .portfolio-info {
-  padding: 15px;
-  text-align: center;
-  background: white;
-  width: 100%;
-  border-bottom-left-radius: 12px;
-  border-bottom-right-radius: 12px;
-}
-#send_message:hover {
-  color:black;
-}
-#send_message {
-  background-color:#b8a07e;
-  color:white;
-}
-/* Responsive Tweaks */
-@media (max-width: 768px) {
-  .portfolio .portfolio-content img {
-    height: 200px; /* Adjust height for smaller screens */
-  }
-  .portfolio .portfolio-item.filter-app img {
-    height: 230px;
-  }
-}
-
-</style>
 <body class="index-page">
 
   <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
 
       <a href="index.html" class="logo d-flex align-items-center">
-        <!-- Uncomment the line below if you also wish to use an image logo -->
-        <!-- <img src="assets/img/logo.png" alt=""> -->
         <h1 class="sitename">Ahmed Nabih</h1>
       </a>
 
@@ -116,16 +260,22 @@
     <!-- Hero Section -->
     <section id="hero" class="hero section dark-background">
 
-      <img src="assets/img/profile_image.jpg" alt="" data-aos="fade-in">
+      <img src="assets/img/profile_image.webp" alt="Ahmed Nabih" fetchpriority="high" width="1000" height="667" data-aos="fade-in">
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
-        <h2>Ahmed Nabih<br></h2>
-        <p>a <span class="typed" data-typed-items="Backend Developer, Freelancer, Team Leader"></span></p>
-        <div class="social-links">
+        <h2>Ahmed Nabih</h2>
+        <p>a <span class="typed" data-typed-items="Backend Engineer, Systems Architect, SaaS Builder, Team Leader"></span></p>
+        <p class="hero-tagline">I design and build secure, scalable backend systems and platforms that power businesses behind the scenes.</p>
 
-          <a href="https://www.facebook.com/profile.php?id=100006094989603" target="_blank"><i class="bi bi-facebook"></i></a>
-          <a href="https://www.instagram.com/_ahmednabih/"><i class="bi bi-instagram" target="_blank"></i></a>
-          <a href="https://www.linkedin.com/in/ahmed-nabih-765847181/"><i class="bi bi-linkedin" target="_blank"></i></a>
+        <div class="hero-cta">
+          <a href="#portfolio" class="btn-primary-cta">View My Work</a>
+          <a href="#contact" class="btn-ghost-cta">Get In Touch</a>
+        </div>
+
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/ahmed-nabih-765847181/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+          <a href="https://www.facebook.com/profile.php?id=100006094989603" target="_blank" rel="noopener" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="https://www.instagram.com/_ahmednabih/" target="_blank" rel="noopener" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
         </div>
       </div>
 
@@ -134,149 +284,129 @@
     <!-- About Section -->
     <section id="about" class="about section">
 
-      <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <h2>About</h2>
+      </div>
 
-      </div><!-- End Section Title -->
-    
       <div class="container" data-aos="fade-up" data-aos-delay="100">
-    
+
         <div class="row gy-4 justify-content-between">
           <div class="col-lg-4 profile-img align-self-start">
-            <img src="assets/img/about.heic" class="img-fluid" alt="">
+            <img src="assets/img/about.webp" class="img-fluid" alt="Ahmed Nabih" loading="lazy" decoding="async" width="800" height="800">
           </div>
           <div class="col-lg-7 content">
-            <h3>Turning Your Ideas into Powerful, Reliable Backend Solutions</h3>
+            <h3>Turning Ideas Into Powerful, Reliable Backend Systems</h3>
             <p>
-              Have you ever wondered what makes a great website or app work smoothly behind the scenes? That’s where I come in. I’m <b>Ahmed Nabih</b>, a Backend Engineer with over <b>4 years of experience</b> in building secure and high-performing systems that make your business run like a well-oiled machine. 
+              I'm <b>Ahmed Nabih</b>, a backend engineer with over <b>5 years of experience</b> building the systems that keep products running smoothly behind the scenes — from clean REST APIs to full SaaS platforms and automation tooling.
             </p>
             <p>
-              From developing simple applications to creating complex platforms, I focus on building the backend systems that make everything function smoothly, securely, and at scale. I’ve worked with businesses across different industries, such as <b>real estate, event management, anti-counterfeiting, and fitness</b>, ensuring their systems are fast, reliable, and capable of growing as their business does.
+              I've delivered software across <b>real estate, security, event management, logistics, and fitness</b>, helping teams ship products that are fast, secure, and ready to scale. Most recently, I architected <b>TJM Hub</b> and the <b>TJM Engine</b> — a connected platform and desktop automation suite used to manage licensing, billing, and automations for clients.
             </p>
-            <b>Why Choose Me?</b>
+            <b>Why Work With Me?</b>
             <ul>
-              <li><i class="bi bi-check2-all"></i> <span> <b>Reliable & Scalable –</b> I build backend systems that can handle increasing traffic and grow with your business needs.</span></li>
-              <li><i class="bi bi-check2-all"></i> <span><b>Security-Focused –</b> I prioritize protecting your data and ensuring your users have a secure experience.</span></li>
-              <li><i class="bi bi-check2-all"></i> <span><b>Full Backend Solutions –</b> Whether it's designing APIs, managing databases, or deploying to the cloud, I provide end-to-end solutions that cover all aspects of your backend.</span></li>
+              <li><i class="bi bi-check2-all"></i> <span><b>Scalable by design —</b> backend systems that handle growth in traffic and data without breaking.</span></li>
+              <li><i class="bi bi-check2-all"></i> <span><b>Security-first —</b> authentication, access control, and data protection built in from day one.</span></li>
+              <li><i class="bi bi-check2-all"></i> <span><b>End-to-end delivery —</b> from API design and databases to containerized cloud deployment.</span></li>
             </ul>
             <p>
-              Let’s make sure your backend is as strong as your vision. <b>If you’re ready to take the next step and want to learn more, take a look at my experience and skills in my resume.</b>
+              Let's make your backend as strong as your vision. <b>Take a look at my experience and skills in my resume.</b>
             </p>
             <a href="./assets/pdf/cv.pdf" target="_blank" rel="noopener noreferrer" class="button">View My Resume</a>
           </div>
         </div>
       </div>
-    
-    </section>
-    
-    
-    <!-- /About Section -->
+
+    </section><!-- /About Section -->
 
     <!-- Services Section -->
     <section id="services" class="services section">
 
-      <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <h2>Services</h2>
-        <p>Empowering businesses with scalable, secure, and high-performance backend solutions.</p>
-      </div><!-- End Section Title -->
-    
+        <p>Scalable, secure, and high-performance backend solutions — engineered end to end.</p>
+      </div>
+
       <div class="container">
         <div class="row gy-4">
-    
-          <!-- Backend Development -->
+
           <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="100">
             <div class="icon flex-shrink-0"><i class="bi bi-server"></i></div>
             <div>
               <h4 class="title">Backend Development with Django</h4>
-              <p class="description">Building robust, scalable, and secure backend systems using Django & Django REST Framework.</p>
+              <p class="description">Robust, scalable, and secure backend systems built with Django and Django REST Framework.</p>
             </div>
-          </div><!-- End Service Item -->
-    
-          <!-- Microservices & API Development -->
+          </div>
+
           <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="200">
             <div class="icon flex-shrink-0"><i class="bi bi-diagram-3"></i></div>
             <div>
-              <h4 class="title">Microservices & API Development</h4>
-              <p class="description">Designing modular microservices and RESTful APIs for efficient system integrations.</p>
+              <h4 class="title">API & Microservices</h4>
+              <p class="description">Well-documented RESTful APIs and modular services designed for clean, reliable integrations.</p>
             </div>
-          </div><!-- End Service Item -->
-    
-          <!-- Database Optimization -->
+          </div>
+
           <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="300">
             <div class="icon flex-shrink-0"><i class="bi bi-database"></i></div>
             <div>
-              <h4 class="title">Database Optimization & Management</h4>
-              <p class="description">Enhancing database efficiency using PostgreSQL, SQLite, and advanced query optimization.</p>
+              <h4 class="title">Database Design & Optimization</h4>
+              <p class="description">Efficient data models and tuned queries on PostgreSQL and SQLite for speed at scale.</p>
             </div>
-          </div><!-- End Service Item -->
-    
-          <!-- Cloud & Containerization -->
+          </div>
+
           <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="400">
             <div class="icon flex-shrink-0"><i class="bi bi-cloud-arrow-up"></i></div>
             <div>
-              <h4 class="title">Cloud & Containerization Solutions</h4>
-              <p class="description">Deploying scalable applications with Docker, Kubernetes, and cloud-based solutions.</p>
+              <h4 class="title">Cloud & Containerization</h4>
+              <p class="description">Reliable deployments with Docker and CI/CD pipelines on modern cloud infrastructure.</p>
             </div>
-          </div><!-- End Service Item -->
-    
-          <!-- Authentication & Security -->
+          </div>
+
           <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="500">
             <div class="icon flex-shrink-0"><i class="bi bi-shield-lock"></i></div>
             <div>
               <h4 class="title">Authentication & Security</h4>
-              <p class="description">Implementing JWT authentication, role-based access control, and system security best practices.</p>
+              <p class="description">JWT authentication, role-based access control, and security best practices baked in.</p>
             </div>
-          </div><!-- End Service Item -->
-    
-          <!-- Custom Web App Development -->
+          </div>
+
           <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="600">
             <div class="icon flex-shrink-0"><i class="bi bi-layers"></i></div>
             <div>
-              <h4 class="title">Custom Web App Development</h4>
-              <p class="description">Developing high-performance web applications tailored to business needs and user experience.</p>
+              <h4 class="title">SaaS & Platform Engineering</h4>
+              <p class="description">Multi-tenant platforms with licensing, subscriptions, and automation — built to grow.</p>
             </div>
-          </div><!-- End Service Item -->
-    
+          </div>
+
         </div>
       </div>
-    
-    </section>
+
+    </section><!-- /Services Section -->
 
     <!-- Testimonials Section -->
     <section id="testimonials" class="testimonials section light-background">
 
-      <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <h2>Testimonials</h2>
-        <p>What industry leaders say about my work and contributions.</p>
-      </div><!-- End Section Title -->
-    
+        <p>What clients and industry leaders say about working with me.</p>
+      </div>
+
       <div class="container" data-aos="fade-up" data-aos-delay="100">
-    
+
         <div class="swiper init-swiper">
           <script type="application/json" class="swiper-config">
             {
               "loop": true,
               "speed": 600,
-              "autoplay": {
-                "delay": 5000
-              },
+              "autoplay": { "delay": 5000 },
               "slidesPerView": "auto",
-              "pagination": {
-                "el": ".swiper-pagination",
-                "type": "bullets",
-                "clickable": true
-              }
+              "pagination": { "el": ".swiper-pagination", "type": "bullets", "clickable": true }
             }
           </script>
           <div class="swiper-wrapper">
-    
-            <!-- Testimonial 1 - Coach Sama -->
+
             <div class="swiper-slide">
               <div class="testimonial-item">
-                <img src="assets/img/testimonials/sama.jpg" class="testimonial-img" alt="Coach Sama">
+                <img src="assets/img/testimonials/sama.webp" class="testimonial-img" alt="Coach Sama" loading="lazy" width="120" height="120">
                 <h3>Coach Sama</h3>
                 <h4>CEO of CSC Fitness</h4>
                 <div class="stars">
@@ -284,16 +414,15 @@
                 </div>
                 <p>
                   <i class="bi bi-quote quote-icon-left"></i>
-                  <span>My company has always been great, but with the system he developed for me, it's reaching an entirely new level of excellence.</span>
+                  <span>My company has always been great, but with the system he built for me, it's reaching an entirely new level of excellence.</span>
                   <i class="bi bi-quote quote-icon-right"></i>
                 </p>
               </div>
-            </div><!-- End testimonial item -->
-    
-            <!-- Testimonial 2 - Nashat Nagy -->
+            </div>
+
             <div class="swiper-slide">
               <div class="testimonial-item">
-                <img src="assets/img/testimonials/nashat.png" class="testimonial-img" alt="Nashat Nagy">
+                <img src="assets/img/testimonials/nashat.webp" class="testimonial-img" alt="Nashat Nagy" loading="lazy" width="120" height="120">
                 <h3>Nashat Nagy</h3>
                 <h4>CEO of 3E Company</h4>
                 <div class="stars">
@@ -301,18 +430,17 @@
                 </div>
                 <p>
                   <i class="bi bi-quote quote-icon-left"></i>
-                  <span>I'm truly grateful for how you identified our system's weak points and delivered the perfect solution. Your work has transformed our operations.</span>
+                  <span>I'm truly grateful for how you identified our system's weak points and delivered the perfect solution. Your work transformed our operations.</span>
                   <i class="bi bi-quote quote-icon-right"></i>
                 </p>
               </div>
-            </div><!-- End testimonial item -->
-    
-            <!-- Testimonial 3 - Ahmed Nagy -->
+            </div>
+
             <div class="swiper-slide">
               <div class="testimonial-item">
-                <img src="assets/img/testimonials/naji.jpeg" class="testimonial-img" alt="Ahmed Nagy">
+                <img src="assets/img/testimonials/naji.webp" class="testimonial-img" alt="Ahmed Nagy" loading="lazy" width="120" height="120">
                 <h3>Ahmed Nagy</h3>
-                <h4>Marketing & PR Director at securu</h4>
+                <h4>Marketing & PR Director at Securu</h4>
                 <div class="stars">
                   <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                 </div>
@@ -322,136 +450,208 @@
                   <i class="bi bi-quote quote-icon-right"></i>
                 </p>
               </div>
-            </div><!-- End testimonial item -->
-    
+            </div>
+
           </div>
           <div class="swiper-pagination"></div>
         </div>
-    
+
       </div>
-    
+
     </section><!-- /Testimonials Section -->
-    
+
     <!-- Portfolio Section -->
     <section id="portfolio" class="portfolio section">
-      <!-- Section Title -->
+
       <div class="container section-title" data-aos="fade-up">
         <h2>Portfolio</h2>
-        <p>Explore my latest projects, covering real estate, security, event planning, and more.</p>
-      </div><!-- End Section Title -->
-    
+        <p>A selection of platforms, automation tools, and web apps I've designed and built.</p>
+      </div>
+
       <div class="container">
         <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
-    
+
           <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
             <li data-filter="*" class="filter-active">All</li>
-            <li data-filter=".filter-real-estate">Real Estate</li>
-            <li data-filter=".filter-security">Security</li>
-            <li data-filter=".filter-events">Event Management</li>
-            <li data-filter=".filter-health">Health & Fitness</li>
-          </ul><!-- End Portfolio Filters -->
-    
+            <li data-filter=".filter-saas">SaaS &amp; Platforms</li>
+            <li data-filter=".filter-automation">Automation</li>
+            <li data-filter=".filter-web">Web Apps</li>
+          </ul>
+
           <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
-    
+
+            <!-- TJM Hub - SaaS Platform -->
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-saas">
+              <div class="portfolio-content h-100">
+                <div class="img-wrap">
+                  <img src="assets/img/portfolio/TJM-Hub-Dashboard-Dark.webp" class="img-fluid" alt="TJM Hub Dashboard" loading="lazy" decoding="async">
+                  <div class="portfolio-actions">
+                    <a href="assets/img/portfolio/TJM-Hub-Dashboard-Dark.webp" title="TJM Hub — Dashboard" data-gallery="g-tjm-hub" class="glightbox" aria-label="Preview TJM Hub"><i class="bi bi-zoom-in"></i></a>
+                    <a href="https://hub.tjmlabs.com/auth/login/" target="_blank" rel="noopener" title="Visit TJM Hub" aria-label="Visit TJM Hub"><i class="bi bi-box-arrow-up-right"></i></a>
+                    <a href="assets/img/portfolio/TJM-Hub-Dashboard-Light.webp" data-gallery="g-tjm-hub" class="glightbox d-none"></a>
+                    <a href="assets/img/portfolio/TJM-Hub-Login.webp" data-gallery="g-tjm-hub" class="glightbox d-none"></a>
+                  </div>
+                </div>
+                <div class="portfolio-info">
+                  <span class="cat">SaaS Platform</span>
+                  <h4>TJM Hub</h4>
+                  <p>A centralized SaaS platform to manage software licenses, client accounts, payments, and connected automation engines — featuring real-time revenue analytics, license generation, and subscription billing from a single dashboard.</p>
+                  <div class="portfolio-tags">
+                    <span>Django</span><span>DRF</span><span>PostgreSQL</span><span>Docker</span><span>Stripe</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- TJM Engine - Desktop Automation -->
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-automation">
+              <div class="portfolio-content h-100">
+                <div class="img-wrap">
+                  <img src="assets/img/portfolio/TJM-Engine.webp" class="img-fluid" alt="TJM Engine Automation Control" loading="lazy" decoding="async">
+                  <div class="portfolio-actions">
+                    <a href="assets/img/portfolio/TJM-Engine.webp" title="TJM Engine — Automation Control" data-gallery="g-tjm-engine" class="glightbox" aria-label="Preview TJM Engine"><i class="bi bi-zoom-in"></i></a>
+                    <a href="assets/img/portfolio/TJM-Engine-Login.webp" data-gallery="g-tjm-engine" class="glightbox d-none"></a>
+                  </div>
+                </div>
+                <div class="portfolio-info">
+                  <span class="cat">Desktop App</span>
+                  <h4>TJM Engine</h4>
+                  <p>A cross-platform desktop application that runs and monitors automations on client machines. It securely links to TJM Hub for license validation, supports manual and enterprise modes, scheduled restarts, and live log streaming.</p>
+                  <div class="portfolio-tags">
+                    <span>Python</span><span>Automation</span><span>Cross-Platform</span><span>Hub-Connected</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             <!-- Propyz - Real Estate -->
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-real-estate">
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-web">
               <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/propyz.jpeg" class="img-fluid" alt="Propyz">
+                <div class="img-wrap">
+                  <img src="assets/img/portfolio/propyz.webp" class="img-fluid" alt="Propyz" loading="lazy" decoding="async">
+                  <div class="portfolio-actions">
+                    <a href="assets/img/portfolio/propyz.webp" title="Propyz" data-gallery="portfolio-gallery" class="glightbox" aria-label="Preview Propyz"><i class="bi bi-zoom-in"></i></a>
+                  </div>
+                </div>
                 <div class="portfolio-info">
+                  <span class="cat">Real Estate</span>
                   <h4>Propyz</h4>
-                  <p>A complete real estate management system for property owners and tenants.</p>
-                  <a href="assets/img/portfolio/propyz.jpeg" title="Propyz" data-gallery="portfolio-gallery" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="https://demo.propyz.ch/login" target="_blank" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                  <p>A complete real estate management platform for property owners and tenants, streamlining listings, contracts, and tenant communication.</p>
+                  <div class="portfolio-tags"><span>Django</span><span>REST API</span><span>PostgreSQL</span></div>
                 </div>
               </div>
-            </div><!-- End Portfolio Item -->
-    
+            </div>
+
             <!-- Securu System - Security -->
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-security">
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-web">
               <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/securu.png" class="img-fluid" alt="Securu System">
+                <div class="img-wrap">
+                  <img src="assets/img/portfolio/securu.webp" class="img-fluid" alt="Securu System" loading="lazy" decoding="async">
+                  <div class="portfolio-actions">
+                    <a href="assets/img/portfolio/securu.webp" title="Securu System" data-gallery="portfolio-gallery" class="glightbox" aria-label="Preview Securu"><i class="bi bi-zoom-in"></i></a>
+                    <a href="https://securusystems.com" target="_blank" rel="noopener" title="Visit Securu" aria-label="Visit Securu"><i class="bi bi-box-arrow-up-right"></i></a>
+                  </div>
+                </div>
                 <div class="portfolio-info">
+                  <span class="cat">Security</span>
                   <h4>Securu System</h4>
-                  <p>An anti-counterfeiting system using NFC tags for product authenticity verification.</p>
-                  <a href="assets/img/portfolio/securu.png" title="Securu System" data-gallery="portfolio-gallery" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="https://staff.securusystems.com" target="_blank" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                  <p>An anti-counterfeiting platform using NFC tags to verify product authenticity and protect brands from fraud.</p>
+                  <div class="portfolio-tags"><span>Django</span><span>NFC</span><span>REST API</span></div>
                 </div>
               </div>
-            </div><!-- End Portfolio Item -->
-    
+            </div>
+
             <!-- Event Planner System -->
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-events">
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-web">
               <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/event_planner.jpeg" class="img-fluid" alt="Event Planner System">
+                <div class="img-wrap">
+                  <img src="assets/img/portfolio/event_planner.webp" class="img-fluid" alt="Event Planner System" loading="lazy" decoding="async">
+                  <div class="portfolio-actions">
+                    <a href="assets/img/portfolio/event_planner.webp" title="Event Planner System" data-gallery="portfolio-gallery" class="glightbox" aria-label="Preview Event Planner"><i class="bi bi-zoom-in"></i></a>
+                  </div>
+                </div>
                 <div class="portfolio-info">
-                  <h4>Event Planner System</h4>
-                  <p>A hotel event management system with AI chatbot integration for smooth operations.</p>
-                  <a href="assets/img/portfolio/event_planner.jpeg" title="Event Planner System" data-gallery="portfolio-gallery" class="glightbox preview-link"><i class="bi bi-zoom-out"></i></a>
-                  <a href="https://eventai.app" title="More Details" target="_blank" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                  <span class="cat">Hospitality</span>
+                  <h4>Event Planner</h4>
+                  <p>A hotel event management system with an AI chatbot that streamlines bookings, scheduling, and guest communication.</p>
+                  <div class="portfolio-tags"><span>Django</span><span>AI Chatbot</span><span>REST API</span></div>
                 </div>
               </div>
-            </div><!-- End Portfolio Item -->
-    
-            <!-- Waqf Mohammed Hail - Charity App -->
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/waqf.jpeg" class="img-fluid" alt="Waqf Mohammed Hail">
-                <div class="portfolio-info">
-                  <h4>Waqf Mohammed Hail</h4>
-                  <p>A backend system for managing the distribution of food donations.</p>
-                  <a href="assets/img/portfolio/waqf.jpeg" title="Waqf Mohammed Hail" data-gallery="portfolio-gallery" class="glightbox preview-link"><i class="bi bi-zoom-out"></i></a>
-                  <!-- <a href="https://waqfmohammedhail.org/api/v1/iam/login" target="_blank" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a> -->
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-    
+            </div>
+
             <!-- Cscfitness - Health & Fitness -->
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-health">
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-web">
               <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/sama.jpeg" class="img-fluid" alt="Cscfitness">
+                <div class="img-wrap">
+                  <img src="assets/img/portfolio/sama.webp" class="img-fluid" alt="CSC Fitness" loading="lazy" decoding="async">
+                  <div class="portfolio-actions">
+                    <a href="assets/img/portfolio/sama.webp" title="CSC Fitness" data-gallery="portfolio-gallery" class="glightbox" aria-label="Preview CSC Fitness"><i class="bi bi-zoom-in"></i></a>
+                  </div>
+                </div>
                 <div class="portfolio-info">
-                  <h4>Cscfitness</h4>
-                  <p>A fitness and nutrition management platform for over 7,000 clients.</p>
-                  <a href="assets/img/portfolio/sama.jpeg" title="Cscfitness" data-gallery="portfolio-gallery" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <!-- <a href="#" title="More Details" target="_blank" class="details-link"><i class="bi bi-link-45deg"></i></a> -->
+                  <span class="cat">Health &amp; Fitness</span>
+                  <h4>CSC Fitness</h4>
+                  <p>A fitness and nutrition management platform serving over 7,000 clients with personalized plans and progress tracking.</p>
+                  <div class="portfolio-tags"><span>Django</span><span>SaaS</span><span>PostgreSQL</span></div>
                 </div>
               </div>
+            </div>
 
-            </div><!-- End Portfolio Item -->
-    
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-profile">
+            <!-- Waqf Mohammed Hail - Charity -->
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-web">
               <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/yamifood.png" class="img-fluid" alt="Yami Food">
+                <div class="img-wrap">
+                  <img src="assets/img/portfolio/waqf.webp" class="img-fluid" alt="Waqf Mohammed Hail" loading="lazy" decoding="async">
+                  <div class="portfolio-actions">
+                    <a href="assets/img/portfolio/waqf.webp" title="Waqf Mohammed Hail" data-gallery="portfolio-gallery" class="glightbox" aria-label="Preview Waqf"><i class="bi bi-zoom-in"></i></a>
+                  </div>
+                </div>
                 <div class="portfolio-info">
+                  <span class="cat">Logistics</span>
+                  <h4>Waqf Mohammed Hail</h4>
+                  <p>A backend system for managing and tracking the distribution of food donations across a charitable network.</p>
+                  <div class="portfolio-tags"><span>Django</span><span>REST API</span><span>Logistics</span></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Yami Food - Restaurant -->
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-web">
+              <div class="portfolio-content h-100">
+                <div class="img-wrap">
+                  <img src="assets/img/portfolio/yamifood.webp" class="img-fluid" alt="Yami Food" loading="lazy" decoding="async">
+                  <div class="portfolio-actions">
+                    <a href="assets/img/portfolio/yamifood.webp" title="Yami Food" data-gallery="portfolio-gallery" class="glightbox" aria-label="Preview Yami Food"><i class="bi bi-zoom-in"></i></a>
+                  </div>
+                </div>
+                <div class="portfolio-info">
+                  <span class="cat">Restaurant</span>
                   <h4>Yami Food</h4>
-                  <p>A restaurant management system for handling menus, orders, and customer feedback efficiently.</p>
-                  <a href="assets/img/portfolio/yamifood.png" title="Yami Food" data-gallery="portfolio-gallery" class="glightbox preview-link">
-                    <i class="bi bi-zoom-in"></i>
-                  </a>
+                  <p>A restaurant management system handling menus, orders, and customer feedback in one streamlined workflow.</p>
+                  <div class="portfolio-tags"><span>Django</span><span>POS</span><span>REST API</span></div>
                 </div>
               </div>
-
+            </div>
 
           </div><!-- End Portfolio Container -->
         </div>
       </div>
     </section><!-- /Portfolio Section -->
+
     <!-- Contact Section -->
     <section id="contact" class="contact section">
 
-      <!-- Section Title -->
       <div class="container section-title text-center" data-aos="fade-up">
         <h2>Contact</h2>
         <hr class="section-divider">
-        <p>Feel free to reach out for collaborations, project inquiries, or just to say hello!</p>
-      </div><!-- End Section Title -->
-    
+        <p>Have a project in mind? Let's talk about how I can help bring it to life.</p>
+      </div>
+
       <div class="container" data-aos="fade-up" data-aos-delay="100">
-    
+
         <div class="info-wrap" data-aos="fade-up" data-aos-delay="200">
           <div class="row gy-5">
-    
+
             <div class="col-lg-4">
               <div class="info-item d-flex align-items-center">
                 <i class="bi bi-geo-alt flex-shrink-0"></i>
@@ -460,114 +660,75 @@
                   <p>Cairo, Egypt</p>
                 </div>
               </div>
-            </div><!-- End Info Item -->
-    
+            </div>
+
             <div class="col-lg-4">
               <div class="info-item d-flex align-items-center">
                 <i class="bi bi-telephone flex-shrink-0"></i>
                 <div>
-                  <a href="https://wa.me/+201149979892" target="_blank">
-                  <h3>Call</h3>
-                  <p>+20 114 997 9892</p>
-                </a>
+                  <a href="https://wa.me/+201149979892" target="_blank" rel="noopener">
+                    <h3>Call / WhatsApp</h3>
+                    <p>+20 114 997 9892</p>
+                  </a>
                 </div>
               </div>
-            </div><!-- End Info Item -->
-    
+            </div>
+
             <div class="col-lg-4">
               <div class="info-item d-flex align-items-center">
                 <i class="bi bi-envelope flex-shrink-0"></i>
                 <div>
-                  <a href="mailto:ahmed.osama99@live.com" target="_blank">
+                  <a href="mailto:ahmed.osama99@live.com">
                     <h3>Email</h3>
                     <p>ahmed.osama99@live.com</p>
                   </a>
                 </div>
               </div>
-            </div><!-- End Info Item -->
-    
+            </div>
+
           </div>
         </div>
-    
+
         <!-- Contact Form -->
         <form id="contact-form" class="php-email-form" data-aos="fade-up" data-aos-delay="300">
           <div class="row gy-4">
             <div class="col-md-6">
               <input type="text" name="from_name" class="form-control" placeholder="Your Name" required>
             </div>
-        
             <div class="col-md-6">
               <input type="email" class="form-control" name="email" placeholder="Your Email" required>
             </div>
-        
             <div class="col-md-12">
               <input type="text" class="form-control" name="subject" placeholder="Subject" required>
             </div>
-        
             <div class="col-md-12">
               <textarea class="form-control" name="message" rows="6" placeholder="Message" required></textarea>
             </div>
-        
             <div class="col-md-12 text-center">
               <div class="loading">Loading</div>
               <div class="error-message"></div>
               <div class="sent-message">Your message has been sent. Thank you!</div>
-        
-              <button type="button" class="btn btn-light" id="send_message" id="send-button">Send Message</button>
+              <button type="button" class="btn" id="send-button">Send Message</button>
             </div>
           </div>
         </form>
-        
-        
+
       </div>
-    
+
     </section><!-- /Contact Section -->
-    
-    <!-- EmailJS Integration -->
-    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
-    <script>
-      // Initialize EmailJS when the document is ready
-      document.addEventListener("DOMContentLoaded", function() {
-        emailjs.init("J_2h-H-wPHBn9gG7H"); // Replace with your actual public key
-      });
-    
-      // Attach click event to the send button
-      document.getElementById("send-button").addEventListener("click", function(event) {
-        event.preventDefault(); // Prevent form from submitting the traditional way
-    
-        const form = document.getElementById("contact-form");
-    
-        // Show loading animation
-        document.querySelector(".loading").style.display = "block";
-    
-        // Send the form data via EmailJS
-        emailjs.sendForm("service_ecaslzd", "template_qar8s56", form)
-          .then(function(response) {
-            // Hide loading animation and show success message
-            document.querySelector(".loading").style.display = "none";
-            document.querySelector(".sent-message").style.display = "block";
-            
-            // Reset the form after successful submission
-            form.reset();
-          }, function(error) {
-            // Hide loading animation and show error message
-            document.querySelector(".loading").style.display = "none";
-            document.querySelector(".error-message").innerHTML = "Something went wrong. Please try again.";
-            document.querySelector(".error-message").style.display = "block";
-          });
-      });
-    </script>
-    
-    
+
   </main>
 
   <footer id="footer" class="footer light-background">
     <div class="container">
-      <h3 class="sitename">Let's Build Something Great Together!</h3>
+      <h3 class="sitename">Let's Build Something Great Together</h3>
       <div class="social-links d-flex justify-content-center">
-        <a href="https://www.facebook.com/profile.php?id=100006094989603"><i class="bi bi-facebook"></i></a>
-        <a href="https://www.instagram.com/_ahmednabih/"><i class="bi bi-instagram"></i></a>
-        <a href="https://www.linkedin.com/in/ahmed-nabih-765847181/"><i class="bi bi-linkedin"></i></a>
+        <a href="https://www.linkedin.com/in/ahmed-nabih-765847181/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+        <a href="https://www.facebook.com/profile.php?id=100006094989603" target="_blank" rel="noopener" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+        <a href="https://www.instagram.com/_ahmednabih/" target="_blank" rel="noopener" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+      </div>
+      <div class="copyright text-center mt-3">
+        <p>© <span>Copyright</span> <strong class="px-1 sitename">Ahmed Nabih</strong> <span>— All Rights Reserved</span></p>
       </div>
     </div>
   </footer>
@@ -578,18 +739,51 @@
   <!-- Preloader -->
   <div id="preloader"></div>
 
+  <!-- EmailJS Integration -->
+  <script src="https://cdn.emailjs.com/dist/email.min.js" defer></script>
+
   <!-- Vendor JS Files -->
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/typed.js/typed.umd.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js" defer></script>
+  <script src="assets/vendor/php-email-form/validate.js" defer></script>
+  <script src="assets/vendor/aos/aos.js" defer></script>
+  <script src="assets/vendor/typed.js/typed.umd.js" defer></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js" defer></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js" defer></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js" defer></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js" defer></script>
 
   <!-- Main JS File -->
-  <script src="assets/js/main.js"></script>
+  <script src="assets/js/main.js" defer></script>
+
+  <!-- Contact form handler -->
+  <script defer>
+    window.addEventListener("load", function () {
+      if (typeof emailjs === "undefined") return;
+      emailjs.init("J_2h-H-wPHBn9gG7H");
+      var sendBtn = document.getElementById("send-button");
+      if (!sendBtn) return;
+      sendBtn.addEventListener("click", function (event) {
+        event.preventDefault();
+        var form = document.getElementById("contact-form");
+        if (!form.checkValidity()) { form.reportValidity(); return; }
+        document.querySelector(".loading").style.display = "block";
+        document.querySelector(".error-message").style.display = "none";
+        document.querySelector(".sent-message").style.display = "none";
+        emailjs.sendForm("service_ecaslzd", "template_qar8s56", form).then(
+          function () {
+            document.querySelector(".loading").style.display = "none";
+            document.querySelector(".sent-message").style.display = "block";
+            form.reset();
+          },
+          function () {
+            document.querySelector(".loading").style.display = "none";
+            document.querySelector(".error-message").innerHTML = "Something went wrong. Please try again.";
+            document.querySelector(".error-message").style.display = "block";
+          }
+        );
+      });
+    });
+  </script>
 
 </body>
 
