@@ -228,11 +228,25 @@
       color: var(--brand-2);
     }
 
+    /* Prevent any accidental horizontal scroll on small screens */
+    html, body { overflow-x: hidden; }
+
+    /* Constrain testimonial slides on phones so they don't widen the page
+       (Swiper slidesPerView:auto otherwise sizes each slide to the quote width) */
+    @media (max-width: 575px) {
+      .testimonials .swiper-slide,
+      .testimonials .testimonial-item { width: 100% !important; max-width: 100% !important; }
+      .testimonials .testimonial-item p { width: 100% !important; }
+    }
+
     @media (max-width: 768px) {
       .portfolio .portfolio-content img { height: 200px; }
       .portfolio .portfolio-actions { opacity: 1; transform: none; }
+      .hero .hero-tagline { max-width: 100%; font-size: 16px; }
+      .hero .hero-cta .btn-primary-cta,
+      .hero .hero-cta .btn-ghost-cta { padding: 11px 24px; font-size: 14px; }
     }
-  </style>
+</style>
 </head>
 
 <body class="index-page">
