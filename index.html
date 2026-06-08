@@ -4,16 +4,16 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Ahmed Nabih — Backend Engineer & Systems Architect</title>
-  <meta name="description" content="Ahmed Nabih is a backend engineer with 5+ years building secure, scalable systems, SaaS platforms, and APIs with Django. Explore the projects, services, and experience.">
-  <meta name="keywords" content="Ahmed Nabih, Backend Engineer, Django Developer, Python, REST API, SaaS, Microservices, PostgreSQL, Docker, Cairo Egypt">
+  <title>Ahmed Nabih — Software Engineer & Systems Architect</title>
+  <meta name="description" content="Ahmed Nabih is a software engineer with 5+ years building complete, secure, and scalable systems, SaaS platforms, and APIs end to end. Explore the projects, services, and experience.">
+  <meta name="keywords" content="Ahmed Nabih, Software Engineer, Full-Stack Developer, Systems Architect, Django Developer, Python, REST API, SaaS, PostgreSQL, Docker, Cairo Egypt">
   <meta name="author" content="Ahmed Nabih">
   <meta name="theme-color" content="#5b3da8">
 
   <!-- Open Graph / social sharing -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Ahmed Nabih — Backend Engineer & Systems Architect">
-  <meta property="og:description" content="Backend engineer building secure, scalable systems, SaaS platforms, and APIs with Django.">
+  <meta property="og:title" content="Ahmed Nabih — Software Engineer & Systems Architect">
+  <meta property="og:description" content="Software engineer building complete, secure, and scalable systems and platforms end to end.">
   <meta property="og:image" content="assets/img/profile_image.webp">
   <meta property="og:url" content="https://a-nabih.github.io/portfolio/">
   <meta name="twitter:card" content="summary_large_image">
@@ -264,31 +264,12 @@
       .portfolio .portfolio-content img { height: 200px; }
       .portfolio .portfolio-actions { opacity: 1; transform: none; }
 
-      /* Stacked hero on phones: photo on top (face fully visible),
-         text on a solid panel below so nothing overlaps the image. */
-      .hero {
-        display: block !important;
-        min-height: auto !important;
-        padding: 0 !important;
-        background: #15171d;
-      }
-      .hero:before { content: none !important; }
-      .hero img {
-        position: relative !important;
-        height: 56vh !important;
-        width: 100%;
-        object-fit: cover;
-        object-position: 62% 18%;
-      }
-      .hero .container {
-        position: relative;
-        z-index: 3;
-        background: #15171d;
-        padding: 30px 22px 42px !important;
-      }
+      /* Keep hero text over the photo, just shift the whole block (text,
+         buttons, social icons) lower so it sits below the face. */
+      .hero .container { transform: translateY(16vh); }
       .hero h2 { font-size: 30px; }
-      .hero .hero-tagline { max-width: 100%; font-size: 15.5px; margin-top: 16px; }
-      .hero .hero-cta { margin-top: 24px; }
+      .hero .hero-tagline { max-width: 100%; font-size: 15.5px; margin-top: 14px; }
+      .hero .hero-cta { margin-top: 22px; }
       .hero .hero-cta .btn-primary-cta,
       .hero .hero-cta .btn-ghost-cta { padding: 11px 24px; font-size: 14px; }
     }
@@ -327,8 +308,8 @@
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
         <h2>Ahmed Nabih</h2>
-        <p>a <span class="typed" data-typed-items="Backend Engineer, Systems Architect, SaaS Builder, Team Leader"></span></p>
-        <p class="hero-tagline">I design and build secure, scalable backend systems and platforms that power businesses behind the scenes.</p>
+        <p>a <span class="typed" data-typed-items="Software Engineer, Systems Architect, SaaS Builder, Team Leader"></span></p>
+        <p class="hero-tagline">I design and build complete, secure, and scalable software systems — from idea to deployment.</p>
 
         <div class="hero-cta">
           <a href="#portfolio" class="btn-primary-cta">View My Work</a>
@@ -358,21 +339,21 @@
             <img src="assets/img/about.webp" class="img-fluid" alt="Ahmed Nabih" loading="lazy" decoding="async" width="800" height="800">
           </div>
           <div class="col-lg-7 content">
-            <h3>Turning Ideas Into Powerful, Reliable Backend Systems</h3>
+            <h3>Turning Ideas Into Powerful, Reliable Software Systems</h3>
             <p>
-              I'm <b>Ahmed Nabih</b>, a backend engineer with over <b>5 years of experience</b> building the systems that keep products running smoothly behind the scenes — from clean REST APIs to full SaaS platforms and automation tooling.
+              I'm <b>Ahmed Nabih</b>, a software engineer with over <b>5 years of experience</b> building complete systems end to end — from clean REST APIs and databases to full SaaS platforms, automation tooling, and the interfaces on top.
             </p>
             <p>
               I've delivered software across <b>real estate, security, event management, logistics, and fitness</b>, helping teams ship products that are fast, secure, and ready to scale. Most recently, I architected <b>TJM Hub</b> and the <b>TJM Engine</b> — a connected platform and desktop automation suite used to manage licensing, billing, and automations for clients.
             </p>
             <b>Why Work With Me?</b>
             <ul>
-              <li><i class="bi bi-check2-all"></i> <span><b>Scalable by design —</b> backend systems that handle growth in traffic and data without breaking.</span></li>
+              <li><i class="bi bi-check2-all"></i> <span><b>Scalable by design —</b> systems that handle growth in traffic and data without breaking.</span></li>
               <li><i class="bi bi-check2-all"></i> <span><b>Security-first —</b> authentication, access control, and data protection built in from day one.</span></li>
               <li><i class="bi bi-check2-all"></i> <span><b>End-to-end delivery —</b> from API design and databases to containerized cloud deployment.</span></li>
             </ul>
             <p>
-              Let's make your backend as strong as your vision. <b>Take a look at my experience and skills in my resume.</b>
+              Let's make your software as strong as your vision. <b>Take a look at my experience and skills in my resume.</b>
             </p>
             <a href="./assets/pdf/cv.pdf" target="_blank" rel="noopener noreferrer" class="button">View My Resume</a>
           </div>
@@ -386,7 +367,7 @@
 
       <div class="container section-title" data-aos="fade-up">
         <h2>Services</h2>
-        <p>Scalable, secure, and high-performance backend solutions — engineered end to end.</p>
+        <p>Scalable, secure, and high-performance software solutions — engineered end to end.</p>
       </div>
 
       <div class="container">
@@ -395,8 +376,8 @@
           <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="100">
             <div class="icon flex-shrink-0"><i class="bi bi-server"></i></div>
             <div>
-              <h4 class="title">Backend Development with Django</h4>
-              <p class="description">Robust, scalable, and secure backend systems built with Django and Django REST Framework.</p>
+              <h4 class="title">Full-Stack Development with Django</h4>
+              <p class="description">Robust, scalable, and secure systems built end to end with Django and Django REST Framework.</p>
             </div>
           </div>
 
@@ -672,7 +653,7 @@
                 <div class="portfolio-info">
                   <span class="cat">Logistics</span>
                   <h4>Waqf Mohammed Hail</h4>
-                  <p>A backend system for managing and tracking the distribution of food donations across a charitable network.</p>
+                  <p>A system for managing and tracking the distribution of food donations across a charitable network.</p>
                   <div class="portfolio-tags"><span>Django</span><span>REST API</span><span>Logistics</span></div>
                 </div>
               </div>
