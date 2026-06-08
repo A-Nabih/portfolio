@@ -263,7 +263,32 @@
     @media (max-width: 768px) {
       .portfolio .portfolio-content img { height: 200px; }
       .portfolio .portfolio-actions { opacity: 1; transform: none; }
-      .hero .hero-tagline { max-width: 100%; font-size: 16px; }
+
+      /* Stacked hero on phones: photo on top (face fully visible),
+         text on a solid panel below so nothing overlaps the image. */
+      .hero {
+        display: block !important;
+        min-height: auto !important;
+        padding: 0 !important;
+        background: #15171d;
+      }
+      .hero:before { content: none !important; }
+      .hero img {
+        position: relative !important;
+        height: 56vh !important;
+        width: 100%;
+        object-fit: cover;
+        object-position: 62% 18%;
+      }
+      .hero .container {
+        position: relative;
+        z-index: 3;
+        background: #15171d;
+        padding: 30px 22px 42px !important;
+      }
+      .hero h2 { font-size: 30px; }
+      .hero .hero-tagline { max-width: 100%; font-size: 15.5px; margin-top: 16px; }
+      .hero .hero-cta { margin-top: 24px; }
       .hero .hero-cta .btn-primary-cta,
       .hero .hero-cta .btn-ghost-cta { padding: 11px 24px; font-size: 14px; }
     }
@@ -303,6 +328,7 @@
       <div class="container" data-aos="fade-up" data-aos-delay="100">
         <h2>Ahmed Nabih</h2>
         <p>a <span class="typed" data-typed-items="Backend Engineer, Systems Architect, SaaS Builder, Team Leader"></span></p>
+        <p class="hero-tagline">I design and build secure, scalable backend systems and platforms that power businesses behind the scenes.</p>
 
         <div class="hero-cta">
           <a href="#portfolio" class="btn-primary-cta">View My Work</a>
