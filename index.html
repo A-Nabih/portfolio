@@ -89,6 +89,27 @@
       font-weight: 400;
     }
 
+    /* ---------- Hero readability scrim ---------- */
+    /* Replace template's light wash with a dark gradient so white text stays
+       legible over bright parts of the photo (left/bottom emphasis). */
+    .hero:before {
+      background: linear-gradient(180deg, rgba(0, 0, 0, .30) 0%, rgba(0, 0, 0, .15) 30%, rgba(0, 0, 0, .60) 100%),
+                  linear-gradient(90deg, rgba(0, 0, 0, .55) 0%, rgba(0, 0, 0, .20) 55%, rgba(0, 0, 0, 0) 100%) !important;
+    }
+
+    /* ---------- Navbar name: hidden until scrolled ---------- */
+    .header .logo .sitename {
+      opacity: 0;
+      transform: translateY(-8px);
+      transition: opacity .4s ease, transform .4s ease;
+      pointer-events: none;
+    }
+    .scrolled .header .logo .sitename {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
     /* ---------- Portfolio cards ---------- */
     .portfolio .portfolio-content {
       position: relative;
